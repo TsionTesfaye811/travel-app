@@ -9,7 +9,7 @@ type ButtonProps = {
   icon?: string;
   variant: string;
   full?: boolean;
-  className?: string; // allow custom styles from parent
+  className?: string; // custom styles
 };
 
 const Button = ({
@@ -24,13 +24,11 @@ const Button = ({
     <button
       type={type}
       className={`flexCenter gap-3 rounded-full border ${variant} ${
-        full ? "w-full" : ""
+        full ? "w-full" : "w-full sm:w-auto"
       } ${className || ""}`}
     >
       {icon && <Image src={icon} alt={title} width={24} height={24} />}
-      <label className="bold-16 whitespace-nowrap cursor-pointer">
-        {title}
-      </label>
+      <span className="bold-16 whitespace-nowrap cursor-pointer">{title}</span>
     </button>
   );
 };
